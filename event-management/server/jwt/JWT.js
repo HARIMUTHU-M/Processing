@@ -5,7 +5,7 @@ const createAccessTokens = (user) => {
   const accessToken = sign(
     { email: user.email, id: user.id },
     process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: "1m"
+    expiresIn: "1d"
   }
   );
 
@@ -16,7 +16,7 @@ const createRefreshTokens = (user) => {
   const refreshToken = sign(
     { email: user.email, id: user.id },
     process.env.REFRESH_TOKEN_SECRET, {
-    expiresIn: "5m"
+    expiresIn: "1d"
   }
   );
 

@@ -9,9 +9,9 @@ const Description=()=>{
         //     <div classNameName=" box-border ml-[10rem] h-[1200px] w-[900px] mt-10">{location.state.desc}</div>
         // </div>
 
-        <div className="bg-[#f0f2f5] h-screen flex">
+        <div className="bg-[#f0f2f5] flex flex-col">
     <table className="w-[70%] my-[5rem] m-auto text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead className="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" className="py-5 px-10">
                     Event
@@ -22,7 +22,7 @@ const Description=()=>{
                 
             </tr>
         </thead>
-        <tbody>
+        <tbody className="text-lg">
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     Event Name
@@ -121,9 +121,12 @@ const Description=()=>{
                 {location.state.desc}
                 </td>
             </tr>
-
         </tbody>
     </table>
+    <button 
+          className="text-lg font-bold relative m-auto mb-[4rem] text-black bg-blue-400 rounded-lg hover:bg-blue-500 h-[2.5rem] w-[6rem]">
+          Register
+        </button>
 </div>
     )
 }

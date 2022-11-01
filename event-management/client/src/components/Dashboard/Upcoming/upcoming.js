@@ -7,7 +7,7 @@ import axios from "axios"
 //import Gif1 from "../../../images/cs1.gif";
 // import Axios from "axios";
 
-
+export const ar=[]
 function Upcoming() {
 
   const navigate = useNavigate()
@@ -22,8 +22,8 @@ function Upcoming() {
     })
   }, [])
 
-function Register_eve(id,name){
-  axios.post('http://localhost:3001/userApi/register-eve',{user:user.regno,id,name}).then(function (response) {
+function Register_eve(id,name,summary,date){
+  axios.post('http://localhost:3001/userApi/register-eve',{user:user.regno,id,name,summary,date}).then(function (response) {
       setevent(response.data)
       console.log(response.data)
     })
@@ -33,8 +33,7 @@ function Register_eve(id,name){
       {event.map((eve) => (
         <div>
           <div
-            onClick={() => { navigate('/description', { state: eve }) }}
-            className="flex flex-col mb-5 items-center bg-gray-700 rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-600 hover:scale-105"
+            className="flex flex-col mb-5 items-center bg-gray-700 rounded-3xl border shadow-md md:flex-row md:max-w-xl hover:bg-gray-600 hover:scale-105  hover:rounded-3xl"
           >
             {/* <img
               className="object-cover w-full h-full rounded-t-lg md:h-40 md:w-40 md:rounded-none md:rounded-l-lg"
@@ -42,14 +41,15 @@ function Register_eve(id,name){
               alt=""
             /> */}
             <div className="flex flex-col flex-grow justify-between p-4 leading-normal">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" onClick={() => { navigate('/description', { state: eve }) }}>
                 {eve.name}
               </h5>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400" onClick={() => { navigate('/description', { state: eve }) }}>
                 {eve.summary}
               </p>
+              <button onClick={()=>ar.push(eve.date)} className="text-white w-[50%] ">Event date : {eve.date.split('T')[0]}</button>
             </div>
-            <button onClick={()=>{Register_eve(eve._id,eve.name)}} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <button onClick={()=>{Register_eve(eve._id,eve.name,eve.summary,eve.date)}} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               Register
               <svg
                 aria-hidden="true"

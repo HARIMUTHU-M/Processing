@@ -23,7 +23,7 @@ const Home = () => {
       <Account/>
     </div>
   ) : (
- <div className="bg-[#f0f2f5] h-screen"> 
+ <div className="bg-gray-300 h-screen"> 
   <div className="text-black font-bold text-4xl text-center pt-[2rem]">
     <p>Exciting Events!!!</p>
     <p className="pt-[1rem]">Experience the joy of Participation!</p>
@@ -56,7 +56,7 @@ const Home = () => {
   <div className="carousel-inner relative w-full overflow-hidden">
      {
       event.map((eve,i)=>i===0?(<div className="carousel-item active relative float-left w-full">
-      <div className="bg-[url('./images/bghom.jpg')] bg-cover mt-[3rem] ml-[26rem] h-[30rem] w-[50rem]  border-2 shadow-2xl ">
+      <div className="bg-[url('./images/bghom.jpg')] bg-cover mt-[3rem] ml-[28rem] h-[30rem] w-[50rem]  border-2 shadow-2xl ">
       <h5 className="mt-[3rem] text-center m-auto text-4xl font-bold tracking-tight text-gray-300 border-[5px] w-[50%] border-white p-4">
             {eve.name}
           </h5>

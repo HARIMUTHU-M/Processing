@@ -18,8 +18,8 @@ router.get("/eve",(req,res)=>{
     })  
 })
 router.post('/register-eve', (req, res) => {
-    const { user, id,name} = req.body
-    const newEvent = new regEvent({ user,id,name })
+    const { user, id,name,summary,date} = req.body
+    const newEvent = new regEvent({ user,id,name,summary,date })
     newEvent.save().then(console.log('saved'))
 });
 router.post('/reg-eve', (req, res) => {
