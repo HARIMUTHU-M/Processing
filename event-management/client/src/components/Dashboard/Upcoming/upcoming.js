@@ -4,6 +4,7 @@ import { selectCurrentUser} from "../../../features/authSlice";
 import { useSelector} from "react-redux";
 import "./upcoming.css";
 import axios from "axios"
+import { AiOutlineSearch } from "react-icons/ai";
 //import Gif1 from "../../../images/cs1.gif";
 // import Axios from "axios";
 
@@ -13,24 +14,48 @@ function Upcoming() {
   const navigate = useNavigate()
   // eslint-disable-next-line no-unused-vars
   const [event, setevent] = useState([])
+  const [filteredData,setFilteredData]=useState([])
   const user = useSelector(selectCurrentUser);
 
   useEffect(() => {
     axios.get('http://localhost:3001/userApi/eve').then(function (response) {
       setevent(response.data)
       console.log(response.data)
+      setFilteredData(response.data)
     })
   }, [])
-
+  
 function Register_eve(id,name,summary,date){
   axios.post('http://localhost:3001/userApi/register-eve',{user:user.regno,id,name,summary,date}).then(function (response) {
       setevent(response.data)
       console.log(response.data)
     })
 }
+const handleFilter=(e)=>{
+  const searchWord=e.target.value;
+  const newFilter=event.filter((value)=>{
+    return value.name.toLowerCase().includes(searchWord.toLowerCase());
+  })
+  setFilteredData(newFilter);
+}
   return (
-    <div className="flex flex-col ">
-      {event.map((eve) => (
+    <>
+      <div className="relative ml-[60px] w-[300px] mt-[30px] shadow-2xl shadow-black ">
+        <AiOutlineSearch className="h-[50px] w-[50px] p-[4px] absolute box-border border-[4px] top-[50%] border-black translate-y-[-50%] " />
+        <input
+          className="h-[50px] box-border pl-[60px] w-[400px] border-[4px] border-black"
+          type="text"
+          placeholder="Type to Search"
+          onChange={handleFilter}
+        />
+      </div>
+      <h1 className="marquee font-bold ">Upcoming...</h1>
+    <div className="overflow-y-scroll">
+      
+    </div>
+      {filteredData.length!=0 &&(
+      <div className="flex flex-col overflow-y-scroll h-[620px] w-[520px]">
+      {filteredData.map((eve) => (
         <div>
           <div
             className="flex flex-col mb-5 items-center bg-gray-700 rounded-3xl border shadow-md md:flex-row md:max-w-xl hover:bg-gray-600 hover:scale-105  hover:rounded-3xl"
@@ -69,6 +94,9 @@ function Register_eve(id,name,summary,date){
         </div>
       ))}
     </div>
+    )}
+    </>
+    
   );
 }
 

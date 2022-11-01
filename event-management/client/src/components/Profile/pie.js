@@ -1,7 +1,7 @@
 import React from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 class PieRechartComponent extends React.Component {
-   COLORS = ["#8884d8", "#82ca9d", "#FFBB28", "#FF8042", "#AF19FA"];
+   COLORS = ["#8884d8", "#92C7C7", "#79BAEC", "#C9C0BB", "#FDD7E4"];
    pieData = [
       {
          name: "Seminar",
@@ -17,11 +17,11 @@ class PieRechartComponent extends React.Component {
       },
       {
          name: "CSEA",
-         value: 29.84
+         value: 24.84
       },
       {
          name: "Others",
-         value: 9.62
+         value: 13.62
       }
    ];
    CustomTooltip = ({ active, payload, label }) => {

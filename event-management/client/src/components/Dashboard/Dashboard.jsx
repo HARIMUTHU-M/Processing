@@ -22,11 +22,11 @@ function App() {
           </div>
         </div>
         <div>
-          <div className="ml-[60px]">
+          {/* <div className="ml-[60px]">
             <Search />
-          </div>
-          <h1 className="marquee font-bold ">Upcoming...</h1>
-          <div className="overflow-y-scroll h-[520px] w-[500px]">
+          </div> */}
+          
+          <div className="">
             <Upcoming />
           </div>
         </div>
