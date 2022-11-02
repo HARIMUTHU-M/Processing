@@ -69,7 +69,7 @@ const Home = () => {
       </div>
       </div>):(
         <div className="carousel-item  relative float-left ">
-      <div className="bg-[url('./images/bghom.jpg')] bg-cover mt-[3rem] ml-[26rem] h-[30rem] w-[50rem]  border-2 shadow-2xl ">
+      <div className="bg-[url('./images/bghom.jpg')] bg-cover mt-[3rem] ml-[28rem] h-[30rem] w-[50rem]  border-2 shadow-2xl ">
       <h5 className="mt-[3rem] text-center m-auto text-4xl font-bold tracking-tight text-gray-300 border-[5px] w-[50%] border-white p-4">
             {eve.name}
           </h5>

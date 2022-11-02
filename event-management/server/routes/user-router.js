@@ -2,12 +2,15 @@ const express = require("express");
 const UserCtrl = require("../controllers/user-ctrl");
 const regEvent=require("../models/register-event-model")
 const router = express.Router();
+
 const Event = require('../models/event-model')
 router.post("/register", UserCtrl.register);
 router.post("/login", UserCtrl.login);
 router.post("/updateUser", UserCtrl.updateUser)
 router.post("/token", UserCtrl.newacesstoken)
 router.delete("/logout", UserCtrl.logout);
+router.post("/uploadImage", UserCtrl.uploadImage)
+
 router.get("/eve",(req,res)=>{
     Event.find({},function (err, result) {
         if (err) {

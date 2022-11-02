@@ -13,7 +13,7 @@ const Registered = () => {
         })
       },[])
   return (
-    <div className="bg-[#f0f2f5] ">
+    <div className="bg-[#f0f2f5] h-page">
       <div className="mx-auto container py-20 px-6">
           <div className="grid grid-cols-3 gap-10">
           {event.map((eve)=>(

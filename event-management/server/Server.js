@@ -1,5 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+const bodyParser=require("body-parser") //
+const multer=require('multer'); //
+const mongodb=require('mongodb');//
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
@@ -16,10 +19,35 @@ const corsOptions = {
   }
 }
 
+app.use(bodyParser.urlencoded({extended:true}))//
+
 app.use(express.json());
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
+// var storage=multer.diskStorage({    //
+//   destination:function(req,file,cb){
+//     cd(null,'Uploads')
+//   },
+//   filename:function(req,file,cb){
+//     cb(null,file.fieldname+'-'+Date.now()+path.extname(file.originalname))
+//   }
+// });
+
+// var upload=multer({
+//   storage:storage
+// })
+
+// MongoClient.connect(url,{
+//   useUnifiedTopology:true,useNewUrlParser:true
+// },(err,client)=>{
+//   if(err) return console.log(err);
+//   db=client.db('Images');
+//   app.listen(5000,()=>{
+//     console.log("Mongodb server listening at 5000")
+//   })
+// })
+// app.post('/uploadfile',upload.single('myfile')) //
 
 //Database
 const db = require("./db/db");

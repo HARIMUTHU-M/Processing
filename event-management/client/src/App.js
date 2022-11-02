@@ -9,7 +9,7 @@ import Dashboard from "./components/Dashboard/Dashboard"
 import Admin from "./components/Admin/Admin"
 import PrivateRoutes from "./components/PrivateRoutes/PrivateRoutes";
 import Registered from "./components/Registered/Registered";
-import Enroll from "./components/Enrollment/enroll";
+import Enroll from "./components/Enrollment/Enroll";
 import Footer from "./components/Footer/footer";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
         <Route path="/add-event" element={<Admin />} exact />
         </Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }

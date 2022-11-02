@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 function Profile() {
   const user = useSelector(selectCurrentUser);
   const userEmail = user ? user.email : null;
+  const name = user.name;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -56,9 +57,9 @@ function Profile() {
 
   return (
     <>
-      <div className="flex flex-row flex-wrap justify-around bg-[#f0f2f5]">
+      <div className="flex flex-row flex-wrap justify-around bg-[#f0f2f5] ">
         {/* User Profile Div */}
-        <div className="my-10 bg-gray-600 flex flex-col w-[40rem] items-center justify-center rounded-lg">
+        <form className="my-10 bg-gray-600 flex flex-col w-[40rem] items-center justify-center rounded-lg">
           <h5 className="my-3 text-4xl text-center font-bold text-white">
             User Profile
           </h5>
@@ -67,6 +68,10 @@ function Profile() {
             src={Gif1}
             alt="profile"
           />
+          <form className="mt-[2rem] text-white" action="/uploadphoto" enctype="multipart/form-data" method="POST">
+            <input type="file" name="myFiles" accept="image/*"></input>
+            <input type="submit" value="Upload Photo"></input>
+          </form>
           <div className="mt-10 px-10 flex flex-col justify-center mb-2 text-2xl w-[90%]">
             <label className="text-white text-lg ml-1">Name :</label>
             <input
@@ -105,10 +110,15 @@ function Profile() {
           >
             Save
           </button>
-        </div>
+        </form>
 
         {/* Activities and Achivements */}
-        <ActivityAchievements />
+        {user.isAdmin!==true?<ActivityAchievements />:<>
+        <div className="text-center text-4xl font-bold mt-[2rem]">
+      <p>Welcome</p>
+      <p>{name}</p>
+    </div>
+        </>}
       </div>
     </>
   );

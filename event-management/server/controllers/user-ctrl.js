@@ -1,7 +1,9 @@
 const bcrypt = require("bcryptjs");
 const UserModel = require("../models/user-model");
+const ImageModal = require("../models/image-model")
 const { sign, verify } = require("jsonwebtoken");
 const { createAccessTokens, createRefreshTokens } = require("../jwt/JWT");
+const multer = require("multer");
 
 register = (req, res) => {
   const { email, password } = req.body;
@@ -99,8 +101,37 @@ updateUser = (req, res) => {
     });
 };
 
+const Storage = multer.diskStorage({    //
+  destination: 'uploads',
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({
+  storage: Storage
+}).single('testImage');
+
+uploadImage = (req,res) => {
+  upload(req,res, (err) => {
+    if (err) throw err;
+    else{
+      const newImage = new ImageModal({
+        name: req.body.name,
+        image: {
+          data: req.file.filename,
+          contentType:'image/png'
+        }
+      })
+
+      newImage.save().then(res => res.json("Successfully uploaded")).catch(err => console.log(err));
+
+    }
+  })
+}
+
 getProfile = (req, res) => {
   res.send(req.authenticated);
 };
 
-module.exports = { register, login, getProfile, updateUser, newacesstoken, logout };
+module.exports = { register, login, getProfile, updateUser, newacesstoken, logout ,uploadImage};
