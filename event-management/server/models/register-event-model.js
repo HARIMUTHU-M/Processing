@@ -11,6 +11,14 @@ const UserSchema = new mongoose.Schema(
             default: Date.now,
             require: true
         },
+        org: { type: String, require: true },
+    dept: { type: String, require: true },
+    cate: { type: String, require: true },
+    venu: { type: String, require: true },
+    type: { type: String, require: true },
+    time: { type: String, require: true },
+    cont: { type: String, require: true },
+    desc: { type: String, require: true }
         
     },
     { timestamps: true }

@@ -1,12 +1,21 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { selectCurrentUser} from "../../features/authSlice";
+import { useSelector} from "react-redux";
+import axios from "axios"
 const Description=()=>{
     const location =useLocation()
+    const user = useSelector(selectCurrentUser);
+    function Register_eve(id,name,summary,date,org,dept,cate,venu,type,time,cont,desc){
+        axios.post('http://localhost:3001/userApi/register-eve',{user:user.regno,id,name,summary,date,org,dept,cate,venu,type,time,cont,desc}).then(function (response) {
+            console.log(response.data)
+          })
+      }
     return(
         // <div classNameName="bg-[#f0f2f5] h-screen flex">
         //     {/* <textarea name="desc" id="desc" cols="30" rows="10" classNameName="bg-black text-white">
         //     </textarea> */}
-        //     <div classNameName=" box-border ml-[10rem] h-[1200px] w-[900px] mt-10">{location.state.desc}</div>
+        //     <div classNameName=" box-border ml-[10rem] h-[1200px] w-[900px] mt-10">{location.eve.desc}</div>
         // </div>
 
         <div className="bg-[#f0f2f5] flex flex-col">
@@ -28,7 +37,7 @@ const Description=()=>{
                     Event Name
                 </th>
                 <td className="py-4 px-6">
-                {location.state.name}
+                {location.state.eve.name}
                 </td>
             </tr>
 
@@ -37,7 +46,7 @@ const Description=()=>{
                     Event Date
                 </th>
                 <td className="py-4 px-6">
-                {location.state.date}
+                {location.state.eve.date}
                 </td>
             </tr>
 
@@ -46,7 +55,7 @@ const Description=()=>{
                     Summary
                 </th>
                 <td className="py-4 px-6">
-                {location.state.summary}
+                {location.state.eve.summary}
                 </td>
             </tr>
 
@@ -55,7 +64,7 @@ const Description=()=>{
                     Organizer
                 </th>
                 <td className="py-4 px-6">
-                {location.state.org}
+                {location.state.eve.org}
                 </td>
             </tr>
 
@@ -64,7 +73,7 @@ const Description=()=>{
                     Department
                 </th>
                 <td className="py-4 px-6">
-                {location.state.dept}
+                {location.state.eve.dept}
                 </td>
             </tr>
 
@@ -73,7 +82,7 @@ const Description=()=>{
                 Event category
                 </th>
                 <td className="py-4 px-6">
-                {location.state.cate}
+                {location.state.eve.cate}
                 </td>
             </tr>
 
@@ -82,7 +91,7 @@ const Description=()=>{
                 Venue
                 </th>
                 <td className="py-4 px-6">
-                {location.state.venu}
+                {location.state.eve.venu}
                 </td>
             </tr>
 
@@ -91,7 +100,7 @@ const Description=()=>{
                 Event type
                 </th>
                 <td className="py-4 px-6">
-                {location.state.type}
+                {location.state.eve.type}
                 </td>
             </tr>
 
@@ -100,7 +109,7 @@ const Description=()=>{
                     Event Time
                 </th>
                 <td className="py-4 px-6">
-                {location.state.time}
+                {location.state.eve.time}
                 </td>
             </tr>
 
@@ -109,7 +118,7 @@ const Description=()=>{
                     Contact details
                 </th>
                 <td className="py-4 px-6">
-                {location.state.cont}
+                {location.state.eve.cont}
                 </td>
             </tr>
 
@@ -118,15 +127,20 @@ const Description=()=>{
                 Detailed description
                 </th>
                 <td className="py-4 px-6">
-                {location.state.desc}
+                {location.state.eve.desc}
                 </td>
             </tr>
         </tbody>
     </table>
+    {location.state.reg!=1?
     <button 
+    onClick={()=>{Register_eve(location.state.eve._id,location.state.eve.name,location.state.eve.summary,location.state.eve.date,location.state.eve.org,location.state.eve.dept,location.state.eve.cate,location.state.eve.venu,location.state.eve.type,location.state.eve.time,location.state.eve.cont,location.state.eve.desc)}}
           className="text-lg font-bold relative m-auto mb-[4rem] text-black bg-blue-400 rounded-lg hover:bg-blue-500 h-[2.5rem] w-[6rem]">
           Register
         </button>
+    :
+    <></>
+}
 </div>
     )
 }

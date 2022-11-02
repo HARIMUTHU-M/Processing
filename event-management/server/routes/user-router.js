@@ -21,8 +21,9 @@ router.get("/eve",(req,res)=>{
     })  
 })
 router.post('/register-eve', (req, res) => {
-    const { user, id,name,summary,date} = req.body
-    const newEvent = new regEvent({ user,id,name,summary,date })
+    const { user, id,name,summary,date,org,dept,cate,venu,type,time,cont,desc} = req.body
+    const newEvent = new regEvent({ user,id,name,summary,date,org,dept,cate,venu,type,time,cont,desc })
+    console.log(newEvent);
     newEvent.save().then(console.log('saved'))
 });
 router.post('/reg-eve', (req, res) => {
@@ -36,5 +37,6 @@ router.post('/reg-eve', (req, res) => {
         }
     })
 });
+
 
 module.exports = router;
