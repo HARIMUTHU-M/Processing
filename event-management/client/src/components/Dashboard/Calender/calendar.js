@@ -10,7 +10,7 @@ const RCalendar = () => {
   };
   console.log(ar[0]);
   return (
-    <div className="md:block imageContainer rounded-l-2xl items-center ">
+    <div className=" ">
       <Calendar onChange={onChange} value={new Date()}/>
     </div>
   );

@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import ActivityAchievements from "./ActivityAchievements/ActivityAchievements";
 import { useNavigate } from "react-router-dom";
+import { Calendar } from "react-calendar";
 
 function Profile() {
   const user = useSelector(selectCurrentUser);
@@ -113,12 +114,18 @@ function Profile() {
         </form>
 
         {/* Activities and Achivements */}
-        {user.isAdmin!==true?<ActivityAchievements />:<>
-        <div className="text-center text-4xl font-bold mt-[2rem]">
-      <p>Welcome</p>
-      <p>{name}</p>
+        {user.isAdmin!==true?<ActivityAchievements />:
+        <div className=" ">
+        <div className="box-border mt-[5rem] h-[220px] w-[355px]  border-2 bg-white shadow-2xl ">
+        <div className="text-center pt-[2rem]  text-4xl font-bold mt-[2rem]">
+        <p>Welcome</p>
+        <p>{name}</p>
     </div>
-        </>}
+    </div>
+    <div className="mt-[7.5rem]">
+    <Calendar/>
+    </div>
+        </div>}
       </div>
     </>
   );

@@ -17,7 +17,7 @@ function App() {
           <div className="box-border mt-[5rem] h-[170px] w-[370px]  border-2 bg-white shadow-2xl">
             <Welcome />
           </div>
-          <div className="h-[300px] w-[350px] mt-[6rem] shadow-2xl">
+          <div className=" mt-[7rem] ">
             <Calendar />
           </div>
         </div>
@@ -50,7 +50,7 @@ function App() {
           </div>
           <div className="box-border mt-[6rem] h-[310px] w-[370px]  border-2 bg-white shadow-2xl">
             <div className="text-center mt-3 text-2xl font-bold">
-              Recent Avtivities
+              Recent Activities
             </div>
             <div className="text-lg mt-5 ml-10 ">
               <p >Participated in Smart Hackathon</p>

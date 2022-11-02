@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-var deasync = require("deasync");
 const EventModel = require('../models/event-model')
 const EventCtrl = require("../controllers/admin-ctrl")
 const regEvent=require("../models/register-event-model")
@@ -20,13 +19,11 @@ router.get("/eve",(req,res)=>{
             result.map((eve)=>{
                 regEvent.find({id:eve._id},(err,res1)=>{
                     part.push({name:eve.name,res1})
-                    //console.log(part)
                 })            
             })
-            while (part.length != result.length-1) {
-                deasync.runLoopOnce()
-              }
+            //console.log(part);
             res.send(part)
+            part.length=0
         }
     })  
 })

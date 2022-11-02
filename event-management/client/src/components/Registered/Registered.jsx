@@ -13,12 +13,12 @@ const Registered = () => {
         })
       },[])
   return (
-    <div className="bg-[#f0f2f5] h-page">
+    <div className="bg-[#f0f2f5] relative h-screen">
       <div className="mx-auto container py-20 px-6">
           <div className="grid grid-cols-3 gap-10">
           {event.map((eve)=>(
               <div className="rounded">
-                  <div className="w-full h-64 flex flex-col justify-between dark:bg-gray-800 dark:border-gray-700 rounded-lg border border-gray-400 mb-6 py-5 px-4">
+                  <div className="w-full h-64 flex flex-col justify-between dark:bg-gray-700 dark:border-gray-700 rounded-lg border border-gray-400 mb-6 py-5 px-4">
                       <div>
                           <h4 className=" text-white font-bold text-2xl text-center mb-3">{eve.name}</h4>
                           <p className=" text-white text-xl mt-[2rem]">{eve.summary}</p>

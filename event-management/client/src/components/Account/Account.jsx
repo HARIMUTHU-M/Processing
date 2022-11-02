@@ -12,7 +12,6 @@ const Account = () => {
 
   const handleLogout = () => {
     dispatch(logOut());
-    alert("You are logged out");
     navigate("/");
   };
 

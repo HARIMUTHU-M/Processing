@@ -10,13 +10,13 @@ const ActivityAchievements = () => {
 
   return (
     <div className="mt-10 flex flex-col justify-between">
-      <div className="items-center bg-gray-600 rounded-lg border shadow-md md:flex-row md:max-w-xl h-[380px] w-[600px]">
+      <div className="items-center bg-gray-600 rounded-lg border shadow-md md:flex-row md:max-w-xl h-[410px] w-[600px]">
         <h5 className="mb-3 mt-2 text-4xl text-center font-bold tracking-tight dark:text-white">
           Activity
         </h5>
         <Pie className="" />
       </div>
-      <div className="relative bottom-[3rem] items-center bg-gray-600 rounded-lg border shadow-md md:flex-row md:max-w-xl h-[350px] w-[600px]">
+      <div className="relative bottom-[3rem] items-center bg-gray-600 rounded-lg border shadow-md md:flex-row md:max-w-xl h-[370px] w-[600px]">
         <h5 className="mb-3 mt-2 text-4xl text-center font-bold tracking-tight dark:text-white">
           Achievements
         </h5>

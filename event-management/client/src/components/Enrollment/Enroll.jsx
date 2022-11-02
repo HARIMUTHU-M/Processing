@@ -9,7 +9,7 @@ const Enroll = () => {
         })
    },[])
   return (
-    <div>{
+    <div className='relative h-screen'>{
     event.map((eve)=>{
                 return(
                   <div>
