@@ -32,12 +32,16 @@ function Navbar() {
             <li className="p-4 hover:scale-125">
               <Link to="/profile">Profile</Link>
             </li>
-            <li className="p-4 hover:scale-125">
-              <Link to="/add-event">Add Events</Link>
-            </li>
-            <li className="p-4 hover:scale-125">
-              <Link to="/enroll">Participants</Link>
-            </li>
+            {user.role === "add-event" ? (
+              <li className="p-4 hover:scale-125">
+                <Link to="/add-event">Add Events</Link>
+              </li>
+            ) : null}
+            {user.role === "view-participants" ? (
+              <li className="p-4 hover:scale-125">
+                <Link to="/enroll">Participants</Link>
+              </li>
+            ) : null}
             <li className="p-4 hover:scale-125">
               <Link to="/">Logout</Link>
             </li>

@@ -4,7 +4,7 @@ import { Outlet, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../features/authSlice";
 
-const ProtectedRoutes = () => {
+const AddEventRoutes = () => {
   const user = useSelector(selectCurrentUser);
 
   const authFn = () => {
@@ -12,11 +12,11 @@ const ProtectedRoutes = () => {
     return (<Navigate to="/" />);
   }
 
-  return user.isAdmin ? (
+  return (user.isAdmin && user.role === "add-event") ? (
     <Outlet />
   ) : (
     authFn()
   );
 };
 
-export default ProtectedRoutes;
+export default AddEventRoutes;
